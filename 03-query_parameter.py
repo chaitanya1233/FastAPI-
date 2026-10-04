@@ -30,3 +30,9 @@ def read_items(item_id:str,q:str |None = None):
     if q:
         return {"item_id":item_id,"q":q}
     return {"item_id":item_id}
+
+
+@app.post("/items/")
+async def add_item(item: dict):
+    fake_items_db.append(item)
+    return fake_items_db
